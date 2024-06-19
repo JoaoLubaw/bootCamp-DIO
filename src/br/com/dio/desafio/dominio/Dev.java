@@ -11,6 +11,11 @@ public class Dev {
 	private Set<Conteudo> conteudosInscritos = new LinkedHashSet<>();
 	private Set<Conteudo> conteudosConcluidos = new LinkedHashSet<>();
 	
+	public Dev(String nome) {
+		super();
+		this.nome = nome;
+	}
+
 	public void inscreverBootCamp(BootCamp bootcamp) {
 		this.conteudosInscritos.addAll(bootcamp.getConteudos());
 		bootcamp.getDevsInscritos().add(this);
@@ -62,7 +67,19 @@ public class Dev {
 	public int hashCode() {
 		return Objects.hash(conteudosConcluidos, conteudosInscritos, nome);
 	}
+	
+	public void getInfos() {
+		System.out.println("========== Dev " + this.nome + "==========");
+		System.out.println("======= Conteúdos Inscritos =======");
+		System.out.println(this.getConteudosInscritos());
+		System.out.println("====== Conteúdos Concluídos ======");
+		System.out.println(this.getConteudosConcluidos());
+		System.out.println("============= XP =============");
+		System.out.println(this.calcularTotalXp());
 
+
+	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
